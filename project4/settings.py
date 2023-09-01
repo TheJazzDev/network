@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+from django.core.wsgi import get_wsgi_application
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "django_blog.settings")
+application = get_wsgi_application()
+app = application
+
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -32,7 +37,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 DEBUG = os.environ["DEBUG"]
 
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ["0.0.0.0", '.vercel.app']
 
 
 # Application definition
